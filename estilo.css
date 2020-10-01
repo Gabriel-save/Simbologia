@@ -3,6 +3,7 @@ html,body{
     padding: 0;
     box-sizing: border-box;
     background-color: #202325;
+    /* background-color: green; */
 }
 
 ul {
@@ -88,6 +89,13 @@ ul {
 
 #txtinput{
   border: 5px solid black;
+}
+
+#divform{
+  background-color: snow; 
+  border-radius: 10px;
+  /* margin-top: 20px; */
+  margin-bottom: 20px;
 }
 
 .canvasresult{

@@ -18,19 +18,19 @@
 </head>
 <body>
     <!-- Imagem e texto -->
-<nav class="navbar navbar-dark bg-dark" data-html2canvas-ignore>
-    <a class="navbar-brand" href="#">
-        <img src="edp.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        <span>EDP - Gerador de Legendas (Status 28)</span>
-    </a>
-    <form class="form-inline">
-        <!-- <a class="btn" id="btn-pc" href="http://10.160.92.57/Legendas_pc/"><i class="fa fa-desktop"></i></a> -->
-        <a class="btn" id="btn-note" href=""><i class="fa fa-desktop"></i></a>
-    </form>
-</nav>
-
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="edp.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            <span>EDP - Gerador de Legendas (Status 28)</span>
+        </a>
+        <form class="form-inline">
+            <!-- <a class="btn" id="btn-pc" href="http://10.160.92.57/Legendas_pc/"><i class="fa fa-desktop"></i></a> -->
+            <a class="btn" id="btn-note" href=""><i class="fa fa-desktop"></i></a>
+        </form>
+    </nav>
 <div class="container-fluid" style="background: #202325;">
-    <div id = "divform" style="background-color: snow; border-radius: 10px;">
+    <br>
+    <div id = "divform">
         <form>
             <ul>
                 <li><input type="checkbox" id="cb1" name="itemCheck" value="Árvore" />
@@ -195,7 +195,7 @@
 
             </ul>
         </form>
-        <div class="butons">
+        <div class="butons" style="margin-left: 5px;">
             <button class="btn" id="genbtn" onclick="verificarCheckBox()"><i class="fa fa-upload"></i> GERAR </button>
             <button class="btn" id="downbtn" hidden onclick="download()"><i class="fa fa-download"></i> Download</button>
             <br data-html2canvas-ignore>
@@ -303,7 +303,7 @@
 <footer id="footer">
     <div class="github">
         <div>
-            <b>Developer by</b>
+            <b>Developed by</b>
             <a href="https://github.com/GabrielGM99">
                 <i class="fa fa-github fa-lg"></i>
                 <b>Gabriel Gomes</b>
@@ -311,8 +311,6 @@
         </div>
     </div>
 </footer>
-
-</nav>
 <script>
 function verificarCheckBox() {
     var check = document.getElementsByName("itemCheck"); 
