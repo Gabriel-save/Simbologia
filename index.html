@@ -177,6 +177,21 @@
                 <label for="cb29"><img src="Simbologias/Rede MT Retirar.JPG" class="image" width="20px" />
                     <p>Rede MT Retirar</p></label>
                 </li>
+                
+                <li><input type="checkbox" id="cb30" name="itemCheck" value="Rede BT Isolada" />
+                <label for="cb30"><img src="Simbologias/REDE BT ISOLADA EXISTENTE.png" class="image" width="20px" />
+                    <p>Rede BT Isolada</p></label>
+                </li>
+                
+                <li><input type="checkbox" id="cb31" name="itemCheck" value="Rede MT Compacta" />
+                <label for="cb31"><img src="Simbologias/REDE MT COMPACTA EXISTENTE.png" class="image" width="20px" />
+                    <p>Rede MT Compacta</p></label>
+                </li>
+                
+                <li><input type="checkbox" id="cb32" name="itemCheck" value="Rede Projetada" />
+                <label for="cb32"><img src="Simbologias/REDE PROJETADA.png" class="image" width="20px" />
+                    <p>Rede Projetada</p></label>
+                </li>
 
             </ul>
         </form>
@@ -413,6 +428,21 @@ function CriarLegenda(imgs_ok,check_ok) {
         }
 
         else if(check_ok[x] == "Rede MT Existente"){
+            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "100px" style="margin-left: 4px" />
+                                <label style="text-align: right">${check_ok[x]} </label><br>`);
+        }
+        
+        else if(check_ok[x] == "Rede BT Isolada"){
+            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "100px" style="margin-left: 4px" />
+                                <label style="text-align: right">${check_ok[x]} </label><br>`);
+        }
+        
+        else if(check_ok[x] == "Rede MT Compacta"){
+            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "100px" style="margin-left: 4px" />
+                                <label style="text-align: right">${check_ok[x]} </label><br>`);
+        }
+        
+        else if(check_ok[x] == "Rede Projetada"){
             result.innerHTML += (`<img src="${imgs_ok[x]}" width = "100px" style="margin-left: 4px" />
                                 <label style="text-align: right">${check_ok[x]} </label><br>`);
         }
