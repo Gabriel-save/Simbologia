@@ -1,555 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerador de Legendas - EDP/ES</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    
-    <link rel='stylesheet' type='text/css' media='screen' href='estilo.css'>
-    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel='stylesheet' type='text/css' media='screen' href='./src/assets/css/styles.css'>
+    <link rel="shortcut icon" href="./src/assets/images/icon/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+
 </head>
 <body>
-    <!-- Imagem e texto -->
-<nav class="navbar navbar-dark bg-dark" data-html2canvas-ignore>
-    <a class="navbar-brand" href="#">
-        <img src="edp.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        <span>EDP - Gerador de Legendas (Status 28)</span>
-    </a>
-    <form class="form-inline">
-        <!-- <a class="btn" id="btn-pc" href="http://10.160.92.57/Legendas_pc/"><i class="fa fa-desktop"></i></a> -->
-        <a class="btn" id="btn-note" href=""><i class="fa fa-desktop"></i></a>
-    </form>
-</nav>
+    <div class="container">
 
-<div class="container-fluid" style="background: #202325;">
-    <div id = "divform" style="background-color: snow; border-radius: 10px;">
-        <form>
-            <ul>
-                <li><input type="checkbox" id="cb1" name="itemCheck" value="Árvore" />
-                <label for="cb1"><img src="Simbologias/Árvore.JPG" class="image" width="20px" />
-                <p>Árvore</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb2" name="itemCheck" value="Aterramento" />
-                <label for="cb2"><img src="Simbologias/Aterramento.JPG" class="image" width="20px" />
-                    <p>Aterramento</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb3" name="itemCheck" value="Edificação do Cliente" />
-                <label for="cb3"><img src="Simbologias/Edificação do Cliente.JPG" class="image" width="20px" />
-                    <p>Edificação do Cliente</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb4" name="itemCheck" value="Padrão de Energia" />
-                <label for="cb4"><img src="Simbologias/Padrão de Energia.JPG" class="image" width="20px" />
-                    <p>Padrão de Energia</p></label>
-                </li>
-            
-                <li><input type="checkbox" id="cb5" name="itemCheck" value="Para-raio" />
-                <label for="cb5"><img src="Simbologias/Para-raio.JPG" class="image" width="20px" />
-                    <p>Para-raio</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb6" name="itemCheck" value="Poste Circular Existente" />
-                <label for="cb6"><img src="Simbologias/Poste Circular Existente.JPG" class="image" width="20px" />
-                    <p>Poste Circular Existente</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb7" name="itemCheck" value="Poste Circular Instalar" />
-                <label for="cb7"><img src="Simbologias/Poste Circular Instalar.JPG" class="image" width="20px" />
-                    <p>Poste Circular Instalar</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb8" name="itemCheck" value="Poste Circular Retirar" />
-                <label for="cb8"><img src="Simbologias/Poste Circular Retirar.JPG" class="image" width="20px" />
-                    <p>Poste Circular Retirar</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb9" name="itemCheck" value="Poste Duplo T Existente" />
-                <label for="cb9"><img src="Simbologias/Poste Duplo T Existente.JPG" class="image" width="20px" />
-                    <p>Poste Duplo T Existente</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb10" name="itemCheck" value="Poste Duplo T Instalar" />
-                <label for="cb10"><img src="Simbologias/Poste Duplo T Instalar.JPG" class="image" width="20px" />
-                    <p>Poste Duplo T Instalar</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb11" name="itemCheck" value="Poste Duplo T Retirar" />
-                <label for="cb11"><img src="Simbologias/Poste Duplo T Retirar.JPG" class="image" width="20px" />
-                    <p>Poste Duplo T Retirar</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb12" name="itemCheck" value="Poste Fibra Existente" />
-                <label for="cb12"><img src="Simbologias/Poste Fibra Existente.JPG" class="image" width="20px" />
-                    <p>Poste Fibra Existente</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb13" name="itemCheck" value="Poste Fibra Instalar" />
-                <label for="cb13"><img src="Simbologias/Poste Fibra Instalar.JPG" class="image" width="20px" />
-                    <p>Poste Fibra Instalar</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb14" name="itemCheck" value="Poste Fibra Retirar" />
-                <label for="cb14"><img src="Simbologias/Poste Fibra Retirar.JPG" class="image" width="20px" />
-                    <p>Poste Fibra Retirar</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb15" name="itemCheck" value="Poste Madeira Existente" />
-                <label for="cb15"><img src="Simbologias/Poste Madeira Existente.JPG" class="image" width="20px" />
-                    <p>Poste Madeira Existente</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb16" name="itemCheck" value="Poste Madeira Existente" />
-                    <label for="cb16"><img src="Simbologias/Poste Instalar.jpg" class="image" width="20px" />
-                    <p>Poste a Instalar</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb17" name="itemCheck" value="Poste Madeira Existente" />
-                    <label for="cb17"><img src="Simbologias/Poste retirar.jpg" class="image" width="20px" />
-                    <p>Poste a Retirar</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb18" name="itemCheck" value="Poste Madeira Instalar" />
-                <label for="cb18"><img src="Simbologias/Poste Madeira Instalar.JPG" class="image" width="20px" />
-                    <p>Poste Madeira Instalar</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb19" name="itemCheck" value="Poste Madeira Retirar" />
-                <label for="cb19"><img src="Simbologias/Poste Madeira Retirar.JPG" class="image" width="20px" />
-                    <p>Poste Madeira Retirar</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb20" name="itemCheck" value="Transformador Existente" />
-                <label for="cb20"><img src="Simbologias/Transformador Existente.JPG" class="image" width="20px" />
-                    <p>Transformador Existente</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb21" name="itemCheck" value="Transformador Instalar" />
-                <label for="cb21"><img src="Simbologias/Transformador Instalar.svg" class="image" width="20px" />
-                    <p>Transformador Instalar</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb22" name="itemCheck" value="Transformador Retirar" />
-                <label for="cb22"><img src="Simbologias/Transformador Retirar.JPG" class="image" width="20px" />
-                    <p>Transformador Retirar</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb23" name="itemCheck" value="Chave Fusível Instalar" />
-                <label for="cb23"><img src="Simbologias/Chave Fusível Instalar.JPG" class="image" width="20px" />
-                    <p>Chave Fusível Instalar</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb24" name="itemCheck" value="Chave Fusível Retirar" />
-                <label for="cb24"><img src="Simbologias/Chave Fusível Retirar.JPG" class="image" width="20px" />
-                    <p>Chave Fusível Retirar</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb25" name="itemCheck" value="Iluminação Pública" />
-                <label for="cb25"><img src="Simbologias/Iluminação Pública.JPG" class="image" width="20px" />
-                    <p>Iluminação Pública</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb26" name="itemCheck" value="Rede BT Existente" />
-                <label for="cb26"><img src="Simbologias/Rede BT Existente.JPG" class="image" width="20px" />
-                    <p>Rede BT Existente</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb27" name="itemCheck" value="Rede BT Retirar" />
-                <label for="cb27"><img src="Simbologias/Rede BT Retirar.JPG" class="image" width="20px" />
-                    <p>Rede BT Retirar</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb28" name="itemCheck" value="Rede MT Existente" />
-                <label for="cb28"><img src="Simbologias/Rede MT Existente.JPG" class="image" width="20px" />
-                    <p>Rede MT Existente</p></label>
-                </li>
-
-                <li><input type="checkbox" id="cb29" name="itemCheck" value="Rede MT Retirar" />
-                <label for="cb29"><img src="Simbologias/Rede MT Retirar.JPG" class="image" width="20px" />
-                    <p>Rede MT Retirar</p></label>
-                </li>
-                
-                <li><input type="checkbox" id="cb30" name="itemCheck" value="Rede BT Isolada" />
-                <label for="cb30"><img src="Simbologias/REDE BT ISOLADA EXISTENTE.png" class="image" width="20px" />
-                    <p>Rede BT Isolada</p></label>
-                </li>
-                
-                <li><input type="checkbox" id="cb31" name="itemCheck" value="Rede MT Compacta" />
-                <label for="cb31"><img src="Simbologias/REDE MT COMPACTA EXISTENTE.png" class="image" width="20px" />
-                    <p>Rede MT Compacta</p></label>
-                </li>
-                
-                <li><input type="checkbox" id="cb32" name="itemCheck" value="Rede Projetada" />
-                <label for="cb32"><img src="Simbologias/REDE PROJETADA.png" class="image" width="20px" />
-                    <p>Rede Projetada</p></label>
-                </li>
-
-            </ul>
-        </form>
-        <div class="butons">
-            <button class="btn" id="genbtn" onclick="verificarCheckBox()"><i class="fa fa-upload"></i> GERAR </button>
-            <button class="btn" id="downbtn" hidden onclick="download()"><i class="fa fa-download"></i> Download</button>
-            <br data-html2canvas-ignore>
-            <br data-html2canvas-ignore>
-            <div class = "textsgen">
-                <button class="btn" id="gentxt" style="background-color: green;" onclick="gerartexto()"><span>Gerar Texto(POSTES)</span></button>
-            <!-- GERAÇAO DE FRASE PARA POSTES -->
-                <select name="acao" id="id_acao" style="width: 110px;">
-                    <option value="TIPO" id="item0">AÇÃO</option>
-                    <option value="RETIRAR" id="item2">RETIRAR</option>
-                    <option value="IMPLANTAR" id="item3">IMPLANTAR</option>
-                </select>
-
-                <input type="text" name="qtd" id="id_qtd" style="width: 35px; height: 25px;" placeholder="QTD">
-
-                <select name="tipo" id="id_tipo" style="width: 150px;">
-                    <option value="TIPO" id="item0">TIPO</option>
-                    <option value="CONCRETO CIRCULAR" id="item1">Concreto Circular</option>
-                    <option value="CONCRETO DUPLO T" id="item2">Concreto Duplo T</option>
-                    <option value="MADEIRA CIRCULAR" id="item3">Madeira Circular</option>
-                    <option value="FIBRA CIRCUCLAR" id="item4">Fibra Circular</option>
-                </select>
-
-                <select name="desc" id="id_dan">
-                    <option id="desc0" value="DESC">DAN</option>
-                    <option id="desc1" value="9/150">9/150</option>
-                    <option id="desc2" value="9/300">9/300</option>
-                    <option id="desc3" value="9/600">9/600</option>
-                    <option id="desc4" value="10/150">10/150</option>
-                    <option id="desc5" value="11/300">11/300</option>
-                    <option id="desc6" value="11/600">11/600</option>
-                    <option id="desc7" value="11/1000">11/1000</option>
-                    <option id="desc8" value="12/300">12/300</option>
-                    <option id="desc9" value="12/600">12/600</option>
-                    <option id="desc10" value="11/1000">11/1000</option>
-                    <option id="desc11" value="12/300">12/300</option>
-                    <option id="desc12" value="12/600">12/600</option>
-                    <option id="desc13" value="12/1000">12/1000</option>
-                    <option id="desc14" value="12/1500">12/1500</option>
-                    <option id="desc15" value="13/600">13/600</option>
-                    <option id="desc16" value="13/1000">13/1000</option>
-                    <option id="desc17" value="13/1500">13/1500</option>
-                    <option id="desc18" value="14/600">14/600</option>
-                    <option id="desc19" value="14/1000">14/1000</option>
-                    <option id="desc20" value="14/1500">14/1500</option>
-                    <option id="desc21" value="15/1000">15/1000</option>
-                    <option id="desc22" value="15/1500">15/1500</option>
-                    <option id="desc23" value="16/1000">16/1000</option>
-                    <option id="desc24" value="16/1500">16/1500</option>
-                </select>
-
-                <!-- GERAÇÃO DE FRASE PARA CABOS -->
-                <button class="btn" id="gentxt" style="background-color: green;" onclick="gerartextocabo()"><span>Gerar Texto (CABOS)</span></button>
-                <select name="acao" id="id_acao_cabo" style="width: 110px;">
-                    <option value="TIPO" id="item0">AÇÃO</option>
-                    <option value="INSTALAR" id="item1">INSTALAR</option>
-                    <option value="RETIRAR" id="item2">RETIRAR</option>
-                </select>
-
-                <input type="text" name="qtd" id="id_qtd_cabo" style="width: 35px; height: 25px;" placeholder="QTD">
-
-                <select name="desc" id="id_tipo_cabo">
-                    <option id="desc0" value="DESC">CABO</option>
-                    <option id="desc1" value="1/0AN">9/150</option>
-                    <option id="desc2" value="1/0ANA">9/300</option>
-                    <option id="desc3" value="185AX">9/600</option>
-                    <option id="desc4" value="2AN">2AN</option>
-                    <option id="desc5" value="2ANA">2ANA</option>
-                    <option id="desc6" value="2x35(35)AX">2x35(35)AX</option>
-                    <option id="desc7" value="2x35(35)AXNI">2x35(35)AXNI</option>
-                    <option id="desc8" value="2x70(70)AX">2x70(70)AX</option>
-                    <option id="desc9" value="2x70(70)AXNI">2x70(70)AXNI</option>
-                    <option id="desc10" value="336AN">336AN</option>
-                    <option id="desc11" value="336ANA">336ANA</option>
-                    <option id="desc12" value="3x120(70)AX">3x120(70)AX</option>
-                    <option id="desc13" value="3x120(70)AXNI">3x120(70)AXNI</option>
-                    <option id="desc14" value="3x2.25AN">3x2.25AN</option>
-                    <option id="desc15" value="3x35(35)AX">3x35(35)AX</option>
-                    <option id="desc16" value="3x35(35)AXNI">3x35(35)AXNI</option>
-                    <option id="desc17" value="3x70(70)AX">3x70(70)AX</option>
-                    <option id="desc18" value="3x70(70)AXNI">3x70(70)AXNI</option>
-                    <option id="desc19" value="4/0AN">4/0AN</option>
-                    <option id="desc20" value="4/0ANA">4/0ANA</option>
-                    <option id="desc21" value="4AN">4AN</option>
-                    <option id="desc22" value="4ANA">4ANA</option>
-                    <option id="desc23" value="50AX">50AX</option>
-                    <option id="desc24" value="70AX">70AX</option>
-                </select>
-        </div>
-        </div>
-        <br data-html2canvas-ignore >
-    </div>
-    <div class="main_results">
-        <div id="resultado" hidden>
-            <center><label style="font-size: 20pt; font-weight: bold;">SIMBOLOGIAS</label></center>
-        </div>
-        <div id = "print" class="canvasresult" hidden></div>
-        <!-- <iframe id = "print"></iframe> -->
-        <div class="texto">
-            <textarea name="inputxt" id="txtinput" cols="80" rows="10" hidden style="text-align: left;">MEMORIAL DESCRITIVO:</textarea>
-        </div>
-    </div>
-</div>
-
-<footer id="footer">
-    <div class="github">
-        <div>
-            <b>Developer by</b>
-            <a href="https://github.com/GabrielGM99">
-                <i class="fa fa-github fa-lg"></i>
-                <b>Gabriel Gomes</b>
+        <header class="navbar" data-html2canvas-ignore>
+            <a class="navbar-brand" href="#">
+                <img src="./src/assets/images/icon/edp.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                <span>EDP - Gerador de Legendas (Status 28)</span>
             </a>
-        </div>
+        </header>
+
+        <main class="main">
+            <div class="content">
+                <button>
+                    <div class="button_img">
+                        <img src="./src/assets/images/image/simbologias/Árvore.JPG" />
+                    </div>
+                    <p>Árvore</p>
+                </button>
+                <button>
+                    <div class="button_img">
+                        <img src="./src/assets/images/image/simbologias/Aterramento.JPG" />
+                    </div>
+                    <p>Aterramento</p>
+                </button>
+                <button>
+                    <div class="button_img">
+                        <img src="./src/assets/images/image/simbologias/Edificação do Cliente.JPG" />
+                    </div>
+                    <p>Edificação do Cliente</p>
+                </button>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="github">
+                <div>
+                    <b>Developed by</b>
+                    <a href="https://github.com/GabrielGM99">
+                        <i class="fa fa-github fa-lg"></i>
+                        <b>Gabriel Gomes</b>
+                    </a>
+                </div>
+            </div>
+        </footer>
+
     </div>
-</footer>
 
-</nav>
-<script>
-function verificarCheckBox() {
-    var check = document.getElementsByName("itemCheck"); 
-    var imgs = document.querySelectorAll("img.image");
-    
-    check_ok = [];
-    imgs_ok = [];
-
-    for (var i = 0; i < check.length; i++){ 
-        if (check[i].checked == true){ 
-            check_ok.push(check[i].value)
-            imgs_ok.push(imgs[i].src)
-        };
-    };
-    CriarLegenda(imgs_ok,check_ok);
-};
-
-function CriarLegenda(imgs_ok,check_ok) {
-    document.getElementById('resultado').hidden = false;
-    document.getElementById('downbtn').hidden = false;
-    // document.getElementById('footer').hidden = false;
-    // document.getElementById('print').hidden = false;
-    result = document.getElementById('resultado'); //Div onde será armezenado as checkbox selecionados;
-
-
-    for ( x in imgs_ok,check_ok) {
-        console.log(check_ok[x])
-        if(check_ok[x] == "Aterramento"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "75px" style="margin-left: 15px"/>
-                                <label>${check_ok[x]} </label><br>`);
-        }
-        else if(check_ok[x] == "Para-raio"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "75px" />
-                                <label style="text-align: right">${check_ok[x]} </label><br>`);
-        }
-
-        else if(check_ok[x] == "Chave Fusível Instalar"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "65px" style="margin-left: 15px" />
-                                <label style="text-align: right">${check_ok[x]} </label><br>`);
-        }
-
-        else if(check_ok[x] == "Chave Fusível Retirar"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "65px" style="margin-left: 15px" />
-                                <label style="text-align: right">${check_ok[x]} </label><br>`);
-        }
-
-        else if(check_ok[x] == "Poste Circular Existente"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "40px" style="margin-left: 15px" />
-                                <label style="text-align: right">${check_ok[x]} </label><br>`);
-        }
-
-        else if(check_ok[x] == "Poste Fibra Existente"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "40px" style="margin-left: 15px" />
-                                <label style="text-align: right">${check_ok[x]} </label><br>`);
-        }
-
-        else if(check_ok[x] == "Poste Fibra Instalar"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "40px" style="margin-left: 15px" />
-                                <label>${check_ok[x]} </label><br>`);
-        }
-
-        else if(check_ok[x] == "Poste Madeira Existente"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "40px" style="margin-left: 15px" />
-                                <label>${check_ok[x]} </label><br>`);
-        }
-
-        else if(check_ok[x] == "Poste Madeira Instalar"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "40px" style="margin-left: 15px" />
-                                <label>${check_ok[x]} </label><br>`);
-        }
-
-        else if(check_ok[x] == "Poste Circular Retirar"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "45px" style="margin-left: 15px" />
-                                <label>${check_ok[x]} </label><br>`);
-        }
-
-        else if(check_ok[x] == "Poste Circular Instalar"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "45px" style="margin-left: 15px" />
-                                <label>${check_ok[x]} </label><br>`);
-        }
-
-        else if(check_ok[x] == "Poste Duplo T Retirar"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "35px" style="margin-left: 15px" />
-                                <label>${check_ok[x]} </label><br>`);
-        }
-
-        else if(check_ok[x] == "Poste Fibra Retirar"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "40px" style="margin-left: 15px" />
-                                <label>${check_ok[x]} </label><br>`);
-        }
-
-        else if(check_ok[x] == "Poste Madeira Retirar"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "40px" style="margin-left: 15px" />
-                                <label>${check_ok[x]} </label><br>`);
-        }
-
-        else if(check_ok[x] == "Poste Duplo T Existente"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "35px" style="margin-left: 15px" />
-                                <label>${check_ok[x]} </label><br>`);
-        }
-
-        else if(check_ok[x] == "Poste Duplo T Instalar"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "35px" style="margin-left: 15px" />
-                                <label>${check_ok[x]} </label><br>`);
-        }
-
-        else if(check_ok[x] == "Iluminação Pública"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "75px" style="margin-left: 15px" />
-                                <label>${check_ok[x]} </label><br>`);
-        }
-
-        else if(check_ok[x] == "Rede BT Retirar"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "100px" style="margin-left: 4px" />
-                                <label>${check_ok[x]} </label><br>`);
-        }
-
-        else if(check_ok[x] == "Rede MT Retirar"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "100px" style="margin-left: 4px" />
-                                <label>${check_ok[x]} </label><br>`);
-        }
-
-        else if(check_ok[x] == "Rede BT Existente"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "100px" style="margin-left: 4px" />
-                                <label>${check_ok[x]} </label><br>`);
-        }
-
-        else if(check_ok[x] == "Rede MT Existente"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "100px" style="margin-left: 4px" />
-                                <label style="text-align: right">${check_ok[x]} </label><br>`);
-        }
-        
-        else if(check_ok[x] == "Rede BT Isolada"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "100px" style="margin-left: 4px" />
-                                <label style="text-align: right">${check_ok[x]} </label><br>`);
-        }
-        
-        else if(check_ok[x] == "Rede MT Compacta"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "100px" style="margin-left: 4px" />
-                                <label style="text-align: right">${check_ok[x]} </label><br>`);
-        }
-        
-        else if(check_ok[x] == "Rede Projetada"){
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "100px" style="margin-left: 4px" />
-                                <label style="text-align: right">${check_ok[x]} </label><br>`);
-        }
-        
-        else{
-            result.innerHTML += (`<img src="${imgs_ok[x]}" width = "45px" style="margin-left: 15px" />
-                            <label style="text-align: right">${check_ok[x]} </label><br>`);
-        }
-        
-
-        // result.innerHTML += (`<img src="${imgs_ok[x]}" width = "50px"/>
-        //                      <label>${check_ok[x]} </label><br>`);Rede BT Existente
-    };
-
-    // alert("Imagem gerada para Download")
-};
-
-function gerartexto(){
-    document.getElementById('txtinput').hidden = false;
-    textarea = document.getElementById('txtinput')
-    
-    qtd = document.getElementById('id_qtd').value;
-
-    if(qtd < 2){
-        strPoste = "POSTE"
-    }else{
-        strPoste = "POSTES"
-    }
-    tamanho = "DAN"
-
-    descricao = document.getElementById('id_dan').value;
-    tipo = document.getElementById('id_tipo').value;
-    acao = document.getElementById('id_acao').value;
-    textarea.innerHTML += "\n" + acao + " " + qtd + " " + strPoste+ " "+ tipo + " " + descricao +" "+ tamanho;
-    console.log(descricao)
-}
-
-function gerartextocabo(){
-    document.getElementById('txtinput').hidden = false;
-    textarea = document.getElementById('txtinput')
-    
-    qtd = document.getElementById('id_qtd_cabo').value;
-
-    if(qtd < 2){
-        strMetros = "METRO"
-    }else{
-        strMetros = "METROS"
-    }
-    desc = "DE CONDUTOR ALUMINIO"
-    // tamanho = ""
-    // descricao = document.getElementById('id_tipo_cabo').value;
-    tipo = document.getElementById('id_tipo_cabo').value;
-    acao = document.getElementById('id_acao_cabo').value;
-    textarea.innerHTML += "\n" + acao + " " + qtd + " " + strMetros+ " "+ desc +" "+tipo;
-    console.log(descricao)
-}
-
-</script>
-
-
-<script>
-  // Gerando Imagem Canvas do HTML
-  // Não sendo utilizada
-//   function gerarcanvas() {
-//     var node = document.getElementById('resultado');
-//     domtoimage.toPng(node)
-//     .then(function (dataUrl) {
-//         var img = new Image();
-//         img.src = dataUrl;
-//         document.getElementById("print").appendChild(img);
-//     })
-//     .catch(function (error) {
-//         console.error('error!', error);
-//     });
-// };
-    // Download da imagem
-function download() {
-    domtoimage.toBlob(document.getElementById('resultado'))
-    .then(function (blob) {
-        window.saveAs(blob, 'legendas.png');
-    });
-    // var link = document.getElementById('linkdownload');
-    // var canvas = document.getElementsByTagName('canvas');
-    // var dataURL = canvas[0].toDataURL('image/jpg', 1);
-    // link.href = dataURL;
-    // console.log(dataURL)
-    // document.write('<a href=" '+dataURL+'" download="Legendas.svg">')
-    // document.write('<img src="'+dataURL+'"/>');
-    // console.log("BBBBBBBBBBBBBBBBBBB" + dataURL)
-    // console.log(link)
-    // link.href = dataURL;
-    // document.getElementById('linkdownload').href = `<a href=" '+dataURL+'" download="Legendas.svg">
-    //                                                 <img src="'+dataURL+'"/>`
-    
-};
-</script>
 </body>
 </html>
