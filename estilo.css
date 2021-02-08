@@ -185,6 +185,11 @@ span{
 #footer a:hover{
   color:rgb(0, 255, 0);
 }
+
+h3{
+  color: black;
+}
+
 /* .github{
   display: flex;
   justify-content: center;
