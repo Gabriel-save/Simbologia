@@ -3,7 +3,7 @@
 # **SPA - Gerador de Simbologia**
 Desenvolvido para uso interno dos colaboradores da EDP-ES. <br>
 
-<img src="Images/site_gerador.png"> <br>
+<img src="https://github.com/GabrielGM99/Simbologia/blob/master/Images/site_gerador.PNG"> <br>
 
 # **Tecnologias Usadas**
 * HTML
