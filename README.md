@@ -12,7 +12,7 @@ Desenvolvido para uso interno dos colaboradores da EDP-ES. <br>
 
 # **Link do App**
 Hospedado no GitHub Pages: <br>
-https://gabrielgm99.github.io/Simbologia/<br>
+https://gabrielgm99.github.io/Simbologia/ (Desativado)<br>
 
 Está hospedado em uma plataforma gratuita - Netlify <br>
-<https://simbologiasedp.netlify.app/>
+<https://simbologiasedp.netlify.app/> (Desativado)
